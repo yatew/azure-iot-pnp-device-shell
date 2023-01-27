@@ -1,8 +1,21 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export default function Home() {
+  const router = useRouter()
+
+  // const handleConnect = (e) => {
+  //   // setLikes(likes + 1);
+  //   // Pass data to a backend api to connect to IoT Hub
+  //   // Navigate to a different page
+  //   // console.log('hello')
+  //   alert('Connecting')
+  //   e.preventDefault()
+  //   router.push('/device')
+  // }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -12,8 +25,47 @@ export default function Home() {
 
       <main>
         <h1 className={styles.title}>
-          {/* Learn <a href="https://nextjs.org">Next.js!</a> */}
-          OK. Read <Link href="/posts/first-post">this page!</Link>
+          Generic Azure IoT <Link href="https://learn.microsoft.com/en-us/azure/iot-develop/overview-iot-plug-and-play">Plug and Play</Link> Device
+        </h1>
+
+        <hr></hr>
+        <label>Device Certificate: </label>
+        <input></input>
+        <button type="button">...</button>
+
+        <hr></hr>
+        <label>Device ID: </label>
+        <input></input>
+
+        <hr></hr>
+        <label>Device Model Definition: </label>
+        <input></input>
+
+        <hr></hr>
+        {/* <button type="button" onClick={handleConnect}>Connect to IoT Hub</button> */}
+        <form method="post" action="/api/connect">
+          <input type="submit" value="Connect to IoT Hub"></input>
+        </form>
+
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+
+        <hr></hr>
+        <h1 className={styles.title}>
+          Learn <a href="https://nextjs.org">Next.js!</a>
+          OK5. Read <Link href="/posts/first-post">this page!</Link>
         </h1>
 
         <p className={styles.description}>
