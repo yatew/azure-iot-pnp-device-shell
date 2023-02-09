@@ -1,20 +1,33 @@
-import MyApp from './../_app';
+// import MyApp from './../_app';
 import Global from '../global';
 
 export default function handler(req, res) {
     // res is https://nodejs.org/api/http.html#http_class_http_serverresponse
-    console.log("connect called")
+    
+    console.log("disconnect called")
+    
+    if (global.iothubcli) {
+        global.iothubcli.close()
+        console.log("disconnected")
+    } else {
+        console.log("not disconnected")
+    }
+    
+    
+    
     // res.status(200).json({ text: 'Call Azure DPS' });
 
     // todo: connect to dps
 
     
 
-    // console.log('Global = ' + JSON.stringify(Global))    
+    // console.log('Global = ' + JSON.stringify(Global))
+    // Global.key = Global.key + 1
     // Global.key = Global.key == null ? 1 : Global.key + 1
 
     console.log('Global = ' + global.abckey)    
     global.abckey = global.abckey == null ? 1 : global.abckey + 1
+
 
 
     // todo: read submitted params
@@ -23,7 +36,7 @@ export default function handler(req, res) {
     // Device model definition
     // DPS ID Scope
 
-
+/*
     // const body = JSON.parse(req.body)
     // console.log('connect request body = ' + JSON.stringify(body))
     console.log('connect request body = ' + JSON.stringify(req.body))
@@ -44,8 +57,7 @@ export default function handler(req, res) {
 
         // String containing Hostname, Device Id & Device Key in the following formats:
         //  'HostName=<iothub_host_name>;DeviceId=<device_id>;SharedAccessKey=<device_key>'
-        // let deviceConnectionString = process.env.IOTHUB_DEVICE_CONNECTION_STRING;
-        let deviceConnectionString = req.body.deviceConnectionString;
+        let deviceConnectionString = process.env.IOTHUB_DEVICE_CONNECTION_STRING;
 
         // DPS connection information
         const provisioningHost = process.env.IOTHUB_DEVICE_DPS_ENDPOINT ||'global.azure-devices-provisioning.net';
@@ -54,10 +66,9 @@ export default function handler(req, res) {
         const symmetricKey = process.env.IOTHUB_DEVICE_DPS_DEVICE_KEY;
         const useDps = process.env.IOTHUB_DEVICE_SECURITY_TYPE || "connectionString";
 
-        // const modelIdObject = { modelId: 'dtmi:com:example:TemperatureController;1' };
+        const modelIdObject = { modelId: 'dtmi:com:example:TemperatureController;1' };
         // const modelIdObject = { modelId: 'dtmi:com:example:TemperatureController;2' };
         // const modelIdObject = { modelId: 'dtmi:com:example:TemperatureController;3' };
-        const modelIdObject = { modelId: req.body.dtmi };
         const messageSubjectProperty = '$.sub';
         const thermostat1ComponentName = 'thermostat1';
         const thermostat2ComponentName = 'thermostat2';
@@ -87,7 +98,7 @@ export default function handler(req, res) {
             process.exit(1);
         }
 
-        // console.log('All good 1.');
+        console.log('All good 1.');
 
         // fromConnectionString must specify a transport, coming from any transport package.
         const client = Client.fromConnectionString(deviceConnectionString, Protocol);
@@ -98,9 +109,8 @@ export default function handler(req, res) {
             // await client.setOptions(modelIdObject);
             client.setOptions(modelIdObject);
             // await client.open();
-            client.open();
-            global.iothubcli = client
-            console.log('device connected');
+            // client.open();
+            // console.log('device connected');
             // client.close();
             // console.log('device disconnected');
         } catch (err) {
@@ -108,12 +118,12 @@ export default function handler(req, res) {
         }
     }
 
-
+*/
 
 
     // res.writeHead(301, { Location: "http://" + req.headers["host"] + "/page-b.html" });
     // res.writeHead(301, { Location: "https://www.google.com" });
-    res.writeHead(301, { Location: "/device" });
+    res.writeHead(301, { Location: "/" });
     // res.writeHead(301, { Location: "https://www.yahoo.com" });
     return res.end();
 }

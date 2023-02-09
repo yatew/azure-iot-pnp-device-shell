@@ -8,6 +8,11 @@
   "dependencies": {
     "next": "latest",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "azure-iot-device": "1.18.1",
+    "azure-iot-device-mqtt": "1.16.1",
+    "azure-iot-provisioning-device": "1.9.1",
+    "azure-iot-provisioning-device-mqtt": "1.8.1",
+    "azure-iot-security-symmetric-key": "1.8.1"
   }
 }

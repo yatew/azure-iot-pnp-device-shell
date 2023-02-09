@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import Global from './global';
 
 export default function FirstPost() {
   const router = useRouter()
@@ -10,6 +11,9 @@ export default function FirstPost() {
     // Pass data to a backend api to connect to IoT Hub
     // Navigate to a different page
     console.log('hello')
+
+    console.log('Global = ' + JSON.stringify(Global))
+
     e.preventDefault()
     router.push('/')
   }
@@ -22,7 +26,32 @@ export default function FirstPost() {
       <h1>Device</h1>
 
       <label>Connected!</label>
-      <button type="button" onClick={handleDisconnect}>Disconnect</button>
+
+
+      {/* client side disconnect cannot get to the server conn obj <button type="button" onClick={handleDisconnect}>Disconnect</button> */}
+      <form method="post" action="/api/disconnect">
+        {/* <hr></hr>
+        <label>Device Certificate: </label>
+        <input></input>
+        <button type="button">...</button>
+
+        <hr></hr>
+        <label>Device ID: </label>
+        <input type="text" id="deviceId" name="deviceId"></input>
+
+        <hr></hr>
+        <label>DPS ID Scope: </label>
+        <input type="text" id="dpsIdScope" name="dpsIdScope"></input>
+
+        <hr></hr>
+        <label>Device Model Definition: </label>
+        <input></input> */}
+
+        <hr></hr>
+        <input type="submit" value="Disconnect"></input>
+
+        <hr></hr>
+      </form>
 
       <button type="checkbox">Ghost Mode</button>
 

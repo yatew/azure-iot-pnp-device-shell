@@ -3,6 +3,7 @@ import styles from '../styles/Home.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
+
 export default function Home() {
   const router = useRouter()
 
@@ -25,26 +26,54 @@ export default function Home() {
 
       <main>
         <h1 className={styles.title}>
-          Generic Azure IoT <Link href="https://learn.microsoft.com/en-us/azure/iot-develop/overview-iot-plug-and-play">Plug and Play</Link> Device
+          Generic Simulated Azure IoT <Link href="https://learn.microsoft.com/en-us/azure/iot-develop/overview-iot-plug-and-play">Plug and Play</Link> Device
         </h1>
 
-        <hr></hr>
-        <label>Device Certificate: </label>
-        <input></input>
-        <button type="button">...</button>
+        
 
-        <hr></hr>
-        <label>Device ID: </label>
-        <input></input>
+        
 
-        <hr></hr>
-        <label>Device Model Definition: </label>
-        <input></input>
+        
+
+        
 
         <hr></hr>
         {/* <button type="button" onClick={handleConnect}>Connect to IoT Hub</button> */}
         <form method="post" action="/api/connect">
+          <hr></hr>
+          <label>Device Connection String: </label>
+          <input type="text" id="deviceConnectionString" name="deviceConnectionString"></input>
+
+          <hr></hr>
+          <label>Device Certificate: </label>
+          <input></input>
+          <button type="button">...</button>
+
+          <hr></hr>
+          <label>Device ID: </label>
+          <input type="text" id="deviceId" name="deviceId"></input>
+
+          <hr></hr>
+          <label>DPS ID Scope: </label>
+          <input type="text" id="dpsIdScope" name="dpsIdScope"></input>
+
+          <hr></hr>
+          <label>DTMI: </label>
+          <select id="dtmi" name="dtmi">
+            <option value="dtmi:com:example:TemperatureController;1">dtmi:com:example:TemperatureController;1</option>
+            <option value="dtmi:com:example:TemperatureController;2">dtmi:com:example:TemperatureController;2</option>
+            <option value="dtmi:com:example:TemperatureController;3">dtmi:com:example:TemperatureController;3</option>
+            <option value="dtmi:com:example:TemperatureController;100">dtmi:com:example:TemperatureController;100</option>
+          </select>
+
+          <hr></hr>
+          <label>Device Model Definition: </label>
+          <input></input>
+
+          <hr></hr>
           <input type="submit" value="Connect to IoT Hub"></input>
+
+          <hr></hr>
         </form>
 
         <p></p>
