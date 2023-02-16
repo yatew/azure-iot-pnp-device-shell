@@ -60,9 +60,9 @@ export default function Home() {
           <hr></hr>
           <label>DTMI: </label>
           <select id="dtmi" name="dtmi">
-            <option value="dtmi:com:example:TemperatureController;1">dtmi:com:example:TemperatureController;1</option>
+            {/* <option value="dtmi:com:example:TemperatureController;1">dtmi:com:example:TemperatureController;1</option> */}
             <option value="dtmi:com:example:TemperatureController;2">dtmi:com:example:TemperatureController;2</option>
-            <option value="dtmi:com:example:TemperatureController;3">dtmi:com:example:TemperatureController;3</option>
+            {/* <option value="dtmi:com:example:TemperatureController;3">dtmi:com:example:TemperatureController;3</option> */}
             <option value="dtmi:com:example:TemperatureController;100">dtmi:com:example:TemperatureController;100</option>
           </select>
 
